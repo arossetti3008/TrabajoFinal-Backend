@@ -1,4 +1,6 @@
-import Turno from "../models/Turno.js";
+// QUeda sin efecto, se reemplaza por AgendaService.js
+
+/* import Turno from "../models/Turno.js";
 
 export const getTurnosService = async () => {
     // Es vital el populate para que el front no reciba solo IDs y se rompa al leer .nombre
@@ -14,4 +16,4 @@ export const crearTurnoService = async (data) => {
     return await Turno.findById(nuevoTurno._id)
         .populate('paciente', 'nombre apellido dni')
         .populate('prestacion', 'nombre valor');
-};
+}; */
