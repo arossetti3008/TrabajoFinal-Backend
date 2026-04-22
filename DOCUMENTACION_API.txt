@@ -27,11 +27,11 @@ La arquitectura sigue el patrón de capas:
   2. TECNOLOGÍA UTILIZADA
 ================================================================================
 
-  Runtime:       Node.js (ES Modules — "type": "module")
+  Runtime:       Node.js
   Framework:     Express 4.x
-  Base de datos: MongoDB Atlas (en la nube) mediante Mongoose 8.x
+  Base de datos: MongoDB Atlas por Mongoose 8.x
   Variables env: dotenv
-  CORS:          cors
+  CORS:          configurado local y abierto
   Desarrollo:    nodemon (hot-reload automático)
 
   Puerto por defecto:  5001
@@ -41,7 +41,7 @@ La arquitectura sigue el patrón de capas:
   ─────────────────────────────────
   backend/
   ├── src/
-  │   ├── index.js              ← Punto de entrada, conexión DB, montaje de rutas
+  │   ├── index.js              ← Punto de entrada, conexión DB, montaje de rutas, cors
   │   ├── models/               ← Esquemas Mongoose
   │   │   ├── Paciente.js
   │   │   ├── ObraSocial.js
@@ -54,7 +54,7 @@ La arquitectura sigue el patrón de capas:
   │   │   ├── PrestacionController.js
   │   │   ├── AgendaController.js
   │   │   └── HistorialController.js
-  │   ├── routes/               ← Definición de rutas HTTP
+  │   ├── routes/               ← Definición de rutas
   │   │   ├── PacienteRoutes.js
   │   │   ├── ObrasocialRoutes.js
   │   │   ├── PrestacionRoutes.js
