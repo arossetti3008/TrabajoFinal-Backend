@@ -45,7 +45,7 @@
   1. RESEÑA DEL PROYECTO
 ================================================================================
 
-ConsulOdontológico es una aplicación web de gestión para consultorios dentales.
+Es una aplicación web de gestión para consultorios dentales.
 Permite administrar pacientes, obras sociales, prestaciones, turnos (agenda) e
 historial clínico de cada paciente.
 
@@ -67,10 +67,10 @@ La arquitectura sigue el patrón de capas:
 
   Runtime:       Node.js
   Framework:     Express 4.x
-  Base de datos: MongoDB Atlas por Mongoose 8.x
+  Base de datos: Mongoose 8.x
   Variables env: dotenv
   CORS:          configurado local y abierto
-  Desarrollo:    nodemon (hot-reload automático)
+  Desarrollo:    nodemon 
 
   Puerto por defecto:  5001
   Variable de entorno: MONGO_URI (string de conexión a MongoDB Atlas)
@@ -120,7 +120,7 @@ La arquitectura sigue el patrón de capas:
   3.1 PRESTACION
   Colección: prestaciones
   Descripción: Catálogo de prácticas odontológicas genéricas del consultorio.
-               Debe cargarse primero ya que ObraSocial y Historial la referencian.
+               Debe cargarse primero ya que ObraSocial e Historial la referencian.
 --------------------------------------------------------------------------------
 
   CAMPOS:
@@ -152,7 +152,7 @@ La arquitectura sigue el patrón de capas:
   3.2 OBRA SOCIAL
   Colección: obrasocials
   Descripción: Convenios de obras sociales con su nomenclador propio.
-               Cada item del nomenclador mapea una Prestacion al código y valor
+               Cada item del nomenclador mapea una Prestación al código y valor
                que aplica esa obra social.
                Prerequisito: las Prestaciones ya deben existir.
 --------------------------------------------------------------------------------
@@ -161,9 +161,9 @@ La arquitectura sigue el patrón de capas:
     razonSocial  String   Obligatorio. Se guarda en MAYÚSCULAS.
     plan         String   Obligatorio. Plan específico (ej: "210", "GOLD").
     nomenclador  Array    Lista de { prestacion (ref), codigoPropio, valorConvenio }.
-      └── prestacion    ObjectId → Prestacion
-      └── codigoPropio  String   Código que exige la OS en sus formularios.
-      └── valorConvenio Number   Lo que la OS abona al consultorio por esa práctica.
+      ── prestacion    ObjectId → Prestacion
+      ── codigoPropio  String   Código que exige la OS en sus formularios.
+      ── valorConvenio Number   Lo que la OS abona al consultorio por esa práctica.
     activo       Boolean  Borrado lógico. Default: true.
     createdAt    Date     Automático.
     updatedAt    Date     Automático.
@@ -203,7 +203,7 @@ La arquitectura sigue el patrón de capas:
   3.3 PACIENTE
   Colección: pacientes
   Descripción: Ficha del paciente. Incluye referencia a su obra social y
-               un odontograma persistido como mapa de piezas dentales.
+               un odontograma como mapa de piezas dentales.
                Prerequisito: la ObraSocial ya debe existir (o dejar null).
 --------------------------------------------------------------------------------
 
