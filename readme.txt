@@ -4,6 +4,44 @@
 ================================================================================
 
 ================================================================================
+  0. CÓMO LEVANTAR EL PROYECTO LOCALMENTE
+================================================================================
+
+  Requisitos previos:
+    - Node.js v18 o superior  (https://nodejs.org)
+    - MongoDB instalado y corriendo localmente
+      (https://www.mongodb.com/try/download/community)
+
+  Pasos:
+
+  1. Clonar el repositorio:
+       git clone https://github.com/arossetti3008/TrabajoFinal-Backend.git
+       cd TrabajoFinal-Backend
+
+  2. Instalar las dependencias:
+       npm install
+
+  3. Configurar las variables de entorno:
+       Copiar el archivo de ejemplo:
+       cp .env.example .env   (Linux/Mac)
+       copy .env.example .env  (Windows)
+
+       El .env.example ya trae valores por defecto listos para usar.
+       Solo modificarlos si tu MongoDB corre en un puerto o nombre distinto.
+
+  4. Iniciar el servidor en modo desarrollo:
+       npm run dev
+
+     O en modo producción:
+       npm start
+
+  5. El servidor estará disponible en:
+       http://localhost:5001
+
+  NOTA: La primera vez que levantes el proyecto no habrá datos.
+        Ver sección 6 para el orden recomendado de carga inicial.
+
+================================================================================
   1. RESEÑA DEL PROYECTO
 ================================================================================
 
