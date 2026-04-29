@@ -3,7 +3,7 @@ import Agenda from "../models/Agenda.js";
 // GET: Obtener citas con datos de pacientes y prestaciones
 export const getAgendaService = async () => {
     return await Agenda.find()
-        .populate('paciente', 'nombre apellido dni')
+        .populate('paciente', 'nombre apellido dni celular')
         .populate('prestacion', 'nombre valor');
 };
 
@@ -35,7 +35,7 @@ export const actualizarCitaService = async (id, data) => {
     }
 
     return await Agenda.findByIdAndUpdate(id, data, { new: true })
-        .populate('paciente', 'nombre apellido dni')
+        .populate('paciente', 'nombre apellido dni celular')
         .populate('prestacion', 'nombre valor');
 };
 

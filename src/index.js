@@ -9,6 +9,8 @@ import obrasocialRoutes from './routes/ObrasocialRoutes.js';
 import prestacionRoutes from './routes/PrestacionRoutes.js';
 import agendaRoutes from './routes/AgendaRoutes.js';
 import historialRoutes from './routes/HistorialRoutes.js';
+import authRoutes from './routes/auth.routes.js';
+import usuarioRoutes from './routes/UsuarioRoutes.js';
 
 const app = express();
 dotenv.config();
@@ -16,12 +18,16 @@ dotenv.config();
 // Middlewares
 app.use(cors());
 app.use(express.json());
+app.use((req, res, next) => {
+    console.log(`📡 [${new Date().toISOString()}] ${req.method} ${req.url}`);
+    next();
+});
 
 // Conexión a DB
 const conectarDB = async () => {
     try {
-        await mongoose.connect(process.env.MONGO_URI);
-        console.log('✅ Base de datos conectada correctamente');
+        const conn = await mongoose.connect(process.env.MONGO_URI);
+        console.log(`✅ Base de datos conectada: ${conn.connection.host}`);
     } catch (error) {
         console.error(`❌ Error: ${error.message}`);
         process.exit(1);
@@ -37,6 +43,8 @@ app.use('/api/obras-sociales', obrasocialRoutes);
 app.use('/api/prestaciones', prestacionRoutes);
 app.use('/api/agenda', agendaRoutes);
 app.use('/api/historial', historialRoutes);
+app.use('/api/auth', authRoutes);
+app.use('/api/usuarios', usuarioRoutes);
 
 // --- CONTROLADOR GLOBAL DE ERRORES ---
 app.use(errorHandler);

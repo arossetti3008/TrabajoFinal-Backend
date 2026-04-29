@@ -25,6 +25,12 @@ const PacienteSchema = new mongoose.Schema({
     type: String,
     trim: true
   },
+  numeroAfiliado: {
+    type: String,
+    maxLength: [20, 'El número de afiliado no puede superar los 20 caracteres'],
+    trim: true,
+    default: ''
+  },
   email: {
     type: String,
     lowercase: true,
