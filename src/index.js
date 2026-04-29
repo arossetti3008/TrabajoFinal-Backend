@@ -16,7 +16,10 @@ const app = express();
 dotenv.config();
 
 // Middlewares
-app.use(cors());
+app.use(cors({
+    origin: ['https://consul-odontologico.vercel.app', 'http://localhost:5173', 'http://127.0.0.1:5173'],
+    credentials: true
+}));
 app.use(express.json());
 app.use((req, res, next) => {
     console.log(`📡 [${new Date().toISOString()}] ${req.method} ${req.url}`);
